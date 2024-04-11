@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error 403 - Acceso denegado{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center align-items-center vh-100">
+            <div class="col-4 text-center">
+                <h1>Error 403 - Acceso denegado</h1>
+                <p>Ruta solo accesible mediante redirecciones.</p>
+                <img src="{{ asset('img/dennis.gif') }}" alt="Dennis">
+            </div>
+        </div>
+    </div>
+{% endblock %}
