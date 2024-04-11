@@ -4,15 +4,29 @@ namespace App\Application\Service;
 use App\Domain\Repository\FizzBuzzRepository;
 use DateTime;
 
+/**
+ * Class FizzBuzzService
+ * @package App\Application\Service
+ */
 class FizzBuzzService
 {
     private $fizzBuzzRepository;
 
+    /**
+     * FizzBuzzService constructor.
+     * @param FizzBuzzRepository $fizzBuzzRepository
+     */
     public function __construct(FizzBuzzRepository $fizzBuzzRepository)
     {
         $this->fizzBuzzRepository = $fizzBuzzRepository;
     }
 
+    /**
+     * @param int $numberStart
+     * @param int $numberEnd
+     * 
+     * @return string
+     */
     public function generateFizzBuzz($numberStart, $numberEnd): string
     {
         $result = '';
@@ -34,12 +48,19 @@ class FizzBuzzService
             }
 
             $result .= ', ';
+
         }
 
         return rtrim($result, ', ');
+
     }
 
-    public function generateAndSaveFizzBuzz($formData)
+    /**
+     * @param object $formData
+     * 
+     * @return void
+     */
+    public function generateAndSaveFizzBuzz($formData): void
     {
         $fizzBuzzGenerated = $this->generateFizzBuzz($formData->getNumberStart(), $formData->getNumberEnd());
 
@@ -47,16 +68,27 @@ class FizzBuzzService
         $formData->setCreatedAt(new DateTime());
 
         $this->save($formData);
+
     }
 
-    public function save($entity)
+    /**
+     * @param object $entity
+     * 
+     * @return void
+     */
+    public function save($entity): void
     {
         $this->fizzBuzzRepository->save($entity);
+
     }
 
-    public function getLastFizzBuzzGenerated()
+    /**
+     * @return string|null
+     */
+    public function getLastFizzBuzzGenerated(): ?string
     {
         return $this->fizzBuzzRepository->getLastFizzBuzzGenerated();
+        
     }
 
 }
