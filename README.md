@@ -1,0 +1,2 @@
+# isEazy
+Test isEazy
