@@ -1,7 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <span class="text-success">{{ fizzBuzzGenerated }}</span>
+    <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+        <span class="d-inline-block bg-success text-white font-weight-bold p-2 mb-3" style="font-size: 1.5rem;">{{ fizzBuzzGenerated }}</span>
+        <a href="{{ path('home') }}" class="btn btn-primary">Volver al inicio</a>
     </div>
 {% endblock %}

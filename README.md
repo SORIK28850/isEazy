@@ -40,6 +40,19 @@ This is a Symfony application that generates a text string containing the words 
     symfony server:start
     ```
 
+## Setting up the test environment
+
+1. Configure your test database connection in the `.env.test` file. You'll need to set the `DATABASE_URL` environment variable with your test database connection details, similar to step 3 in the Installation section.
+
+2. Create the test database:
+    ```
+    php bin/console doctrine:database:create --env=test
+    ```
+3. Run migrations to create the test database schema:
+    ```
+    php bin/console doctrine:migrations:migrate --env=test
+    ```
+
 ## Usage
 
 - Access the application through a web browser at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
